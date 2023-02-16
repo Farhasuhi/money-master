@@ -13,7 +13,7 @@ document.getElementById('calculate').addEventListener('click',function(){
     const totalExpense=clothsValue+foodValue+rentValue;
     const balance=incomeValue-totalExpense;
 
-    if(totalExpense>balance){
+    if(totalExpense>incomeValue){
         alert("your expense more than balance");
         return;
     }
