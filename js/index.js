@@ -7,8 +7,14 @@ document.getElementById('calculate').addEventListener('click',function(){
     valueNull('food');
     valueNull('rent');
     valueNull('cloths');
-
-    validation(incomeValue,foodValue,rentValue,clothsValue);
+    if((isNaN(incomeValue))||(isNaN(foodValue))||(isNaN(rentValue))||(isNaN(clothsValue))){
+        alert("Please provide only number");
+        return;
+    }
+    if((incomeValue<0)||(foodValue<0)||(rentValue<0)||(clothsValue<0)){
+        alert("You cannot put negative number.Please provide only positive number");
+        return;
+    }
 
     const totalExpense=clothsValue+foodValue+rentValue;
     const balance=incomeValue-totalExpense;
@@ -58,14 +64,4 @@ function innerText(id,value){
 
 function valueNull(id){
     document.getElementById(id).value="";
-}
-function validation(var1,var2,var3,var4){
-    if((isNaN(var1))||(isNaN(var2))||(isNaN(var3))||(isNaN(var4))){
-        alert("Please provide only number");
-        return;
-    }
-    if((var1<0)||(var2<0)||(var3<0)||(var4<0)){
-        alert("You cannot put negative number.Please provide only positive number");
-        return;
-    }
 }
