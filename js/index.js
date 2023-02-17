@@ -30,25 +30,20 @@ document.getElementById('calculate').addEventListener('click',function(){
    
 
 });
+
 document.getElementById('save').addEventListener('click',function(){
     const balanceInput=document.getElementById('balance');
     const balanceString=balanceInput.innerText;
     const balance=parseInt(balanceString);
+    const saveInput=getInput('save-input');
+    console.log(balance,saveInput);
 
-    const save=(balance*.2);
-    const saveFloat=save.toFixed(2);
-    const total=parseFloat(save);
-
-    const saveInputField=document.getElementById('save-input');
-    saveInputField.value=saveFloat;
+    const save=balance*(saveInput/100);
+    const remainingBalance=balance-save;
     
-    const remainingBalance=balance-saveFloat;
-
-    innerText('save-amount',total);
+    innerText('save-amount',save);
     innerText('remaining-balance',remainingBalance);
-    
-
-})
+});
 
 function getInput(id){
     const inputField=document.getElementById(id);
